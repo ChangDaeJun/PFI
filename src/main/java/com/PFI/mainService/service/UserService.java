@@ -1,10 +1,16 @@
 package com.PFI.mainService.service;
 
+import com.PFI.mainService.domain.SecurityUserDetails;
 import com.PFI.mainService.domain.User;
 import com.PFI.mainService.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class UserService {
+import java.util.Optional;
+
+public class UserService implements UserDetailsService {
     public final UserRepository userRepository;
 
     @Autowired
@@ -30,5 +36,12 @@ public class UserService {
 
     public void detach(User user){
         userRepository.delete(user);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> user = userRepository.findByEmail(username);
+        if(!user.isPresent()) new UsernameNotFoundException(username);
+        return new SecurityUserDetails(user.get());
     }
 }

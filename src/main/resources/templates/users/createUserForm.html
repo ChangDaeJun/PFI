@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <div class="container">
-    <form action="/users/create" method="post">
+    <form th:action="@{/users/create}" method="post">
         <div class="form-group">
             <label for="email">이메일</label>
             <input type="text" id="email" name="email" placeholder="이메일을 입력하세요">

@@ -1,7 +1,8 @@
-package com.PFI.mainService;
+package com.PFI.mainService.configuration;
 
 import com.PFI.mainService.repository.JdbcUserRepository;
 import com.PFI.mainService.repository.UserRepository;
+import com.PFI.mainService.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,5 +19,10 @@ public class SpringConfig {
     @Bean
     public UserRepository userRepository(){
         return new JdbcUserRepository(dataSource);
+    }
+
+    @Bean
+    public UserService userService(){
+        return new UserService(userRepository());
     }
 }
