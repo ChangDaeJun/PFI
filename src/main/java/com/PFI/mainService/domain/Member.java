@@ -6,12 +6,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class SecurityUserDetails implements UserDetails {
-    private final User user;
-
-    public SecurityUserDetails(User user) {
-        this.user = user;
-    }
+public class Member implements UserDetails {
+    int id;
+    String username;
+    String password;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -19,20 +17,20 @@ public class SecurityUserDetails implements UserDetails {
         collection.add(new GrantedAuthority() {
             @Override
             public String getAuthority() {
-                return "USER";
-            }
+                    return "USER";
+                }
         });
         return collection;
     }
 
-    @Override
+
     public String getPassword() {
-        return user.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return username;
     }
 
     @Override
@@ -53,5 +51,21 @@ public class SecurityUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
