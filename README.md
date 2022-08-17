@@ -59,7 +59,7 @@ jsoup | 라이브러리 | 웹에서 주식 정보 추출
 2022년 8월 11일 ~ 8월 12일 | 주식 도메인, 주식 데이터베이스 연동 | 장대준
 2022년 8월 13일 ~ 8월 14일 | 주식 데이터 크롤링 작성, 데이터베이스에 저장. | 장대준
 -----개편 이후----- | ----------개편 이후---------- |
-[2022년 8월 17일](#2022년-8월-17일) | 계획 수정 및 설정, 회원 정보, 스프링 시큐리티 적용 상태로 시작, User도메인 -> Memeber로 변경, 스프링 시큐리티 수정 | 장대준
+[2022년 8월 17일](#2022년-8월-17일) | 계획 수정, 스프링 시큐리티 적용, User도메인 Memeber로 이름 변경 | 장대준
 
 ### 2022년 8월 17일
 1. 주요 변경점
@@ -70,7 +70,9 @@ jsoup | 라이브러리 | 웹에서 주식 정보 추출
 
 2. 스프링 시큐리티 적용
 <img width="604" alt="image" src="https://user-images.githubusercontent.com/97227920/185153128-edd1ae67-cb54-4dea-9f35-30a97a18dedd.png">
- - 회원 도메인(Member)에 implements UserDetails 후 getAuthorities() Override.
-![스크린샷 2022-08-17 오후 11 06 36](https://user-images.githubusercontent.com/97227920/185155020-bc256dfe-0554-4e37-9eff-918b08e16d15.png)
- - 
+ - Member에 implements UserDetails 후, 추상메서드 구현.
+ <img width="400" alt="image" src="https://user-images.githubusercontent.com/97227920/185156228-06a5ebd1-d2cb-41bc-a474-571079937152.png">
+ - UserDetails에 implements UserDetailsService 후, 메서드 구현.
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/97227920/185156893-65c6e025-ce97-4da0-808f-7abcb30bdfc4.png">
+
 
