@@ -18,6 +18,7 @@ public class UserController {
     @GetMapping("/users/create")
     public String createForm(){
         System.out.println("!!!!");
+        System.out.println("!!!!");
         return "/users/createUserForm";
     }
     @PostMapping("/users/create")
