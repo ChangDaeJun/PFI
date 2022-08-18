@@ -26,7 +26,7 @@ public class CrawlingRepository implements StockRepository{
             for(int i = 8; i < text.length; i+= 7){
                 List<String> list = new LinkedList<>();
                 list.add(text[i]);
-                list.add(text[i + 1]);
+                list.add(text[i + 1].replace(",",""));
                 result.add(list);
             }
         } catch (IOException e) {
@@ -43,7 +43,7 @@ public class CrawlingRepository implements StockRepository{
 
     @Override
     public List<List<String>> findByCurrencyName(String stockName) {
-        String webURL = "https://kr.investing.com/currentcies/"+ stockName + "-historical-data";
+        String webURL = "https://kr.investing.com/currencies/"+ stockName + "-historical-data";
         return crawlingStockPrice(webURL);
     }
 }

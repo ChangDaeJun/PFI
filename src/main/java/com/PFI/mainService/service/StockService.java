@@ -18,18 +18,12 @@ public class StockService {
         String[] equities = {"apple-computer-inc", "samsung-electronics-co-ltd", "tesla-motors"};
         String[] currencies = {"usd-krw"};
         for(String name : indices) storage.put(name,stockRepository.findByIndicesName(name));
-        for(String name : indices) storage.put(name,stockRepository.findByEquityName(name));
-        for(String name : indices) storage.put(name,stockRepository.findByCurrencyName(name));
+        for(String name : equities) storage.put(name,stockRepository.findByEquityName(name));
+        for(String name : currencies) storage.put(name,stockRepository.findByCurrencyName(name));
     }
 
     public List<List<String>> getStock(String name){
         if(!storage.containsKey(name)) new Exception();
-        List<String> addList = new LinkedList<>();
-        addList.add("date");
-        addList.add(name);
-
-        List<List<String>> result = storage.get(name);
-        result.add(0, addList);
-        return result;
+        return storage.get(name);
     }
 }
