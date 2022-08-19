@@ -20,6 +20,7 @@ public class StockService {
         for(String name : indices) storage.put(name,stockRepository.findByIndicesName(name));
         for(String name : equities) storage.put(name,stockRepository.findByEquityName(name));
         for(String name : currencies) storage.put(name,stockRepository.findByCurrencyName(name));
+        storage.values().forEach(x ->{System.out.println(x);});
     }
 
     public List<List<String>> getStock(String name){

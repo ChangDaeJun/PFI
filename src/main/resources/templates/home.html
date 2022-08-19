@@ -3,25 +3,114 @@
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChartA);
+    google.charts.setOnLoadCallback(drawChartB);
+    google.charts.setOnLoadCallback(drawChartC);
+    google.charts.setOnLoadCallback(drawChartD);
+    google.charts.setOnLoadCallback(drawChartE);
+    google.charts.setOnLoadCallback(drawChartF);
 
-      function drawChart() {
+    function drawChartA(){
         var data = google.visualization.arrayToDataTable([
-        ['date', 'kospi'],
-        [[${kospi}]]
-        ]);
+            ['date', 'point'],
+            [[${chartA}]]
+            ]);
 
         var options = {
-          title: 'Company Performance',
+          title: '코스피 지수',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartA'));
 
         chart.draw(data, options);
-      }
+    }
+
+    function drawChartB(){
+        var data = google.visualization.arrayToDataTable([
+            ['date', 'point'],
+            [[${chartB}]]
+            ]);
+
+        var options = {
+          title: '코스닥 지수',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartB'));
+
+        chart.draw(data, options);
+    }
+
+    function drawChartC(){
+        var data = google.visualization.arrayToDataTable([
+            ['date', 'point'],
+            [[${chartC}]]
+            ]);
+
+        var options = {
+          title: 'S&P 500',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartC'));
+
+        chart.draw(data, options);
+    }
+
+    function drawChartD(){
+        var data = google.visualization.arrayToDataTable([
+            ['date', 'point'],
+            [[${chartD}]]
+            ]);
+
+        var options = {
+          title: 'NASDAQ',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartD'));
+
+        chart.draw(data, options);
+    }
+    function drawChartE(){
+        var data = google.visualization.arrayToDataTable([
+            ['date', 'point'],
+            [[${chartE}]]
+            ]);
+
+        var options = {
+          title: 'apple',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartE'));
+
+        chart.draw(data, options);
+    }
+
+    function drawChartF(){
+        var data = google.visualization.arrayToDataTable([
+            ['date', 'point'],
+            [[${chartF}]]
+            ]);
+
+        var options = {
+          title: 'samsung Electronics',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chartF'));
+
+        chart.draw(data, options);
+    }
     </script>
 </head>
 <body>
@@ -29,13 +118,20 @@
     <div>
         <h1>PFI</h1>
         <h3>personal Financial Information</h3>
-        <p>회원 기능</p>
         <p>
+            회원 기능 :
             <a href="/users/create">회원 가입</a>
             <a href="/users/login">로그인</a>
         </p>
     </div>
-    <div id="curve_chart" style="width: 100%; height: 500px;"></div>
+    <div>
+        <div id="curve_chartA" style="width: 600px; height: 400px;"></div>
+        <div id="curve_chartB" style="width: 600px; height: 400px;"></div>
+        <div id="curve_chartC" style="width: 600px; height: 400px;"></div>
+        <div id="curve_chartD" style="width: 600px; height: 400px;"></div>
+        <div id="curve_chartE" style="width: 600px; height: 400px;"></div>
+        <div id="curve_chartF" style="width: 600px; height: 400px;"></div>
+    </div>
 </div> <!-- /container -->
 </body>
 </html>

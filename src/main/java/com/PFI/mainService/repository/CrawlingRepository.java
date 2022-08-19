@@ -21,12 +21,13 @@ public class CrawlingRepository implements StockRepository{
         List<List<String>> result = new LinkedList<>();
         try {
             Document doc = Jsoup.connect(webURL).get();
-            Elements contents = doc.select(".border.border-main");
-            String[] text = contents.text().split(" ");
-            for(int i = 8; i < text.length; i+= 7){
+            Elements contents = doc.select(".border.border-main").select(".datatable_body__3EPFZ").select(".datatable_row__2vgJl");
+            List<String> text = contents.eachText();
+            for(String data : text){
                 List<String> list = new LinkedList<>();
-                list.add(text[i]);
-                list.add(text[i + 1].replace(",",""));
+                String[] dataSplit = data.split(" ");
+                list.add(dataSplit[0]);
+                list.add(dataSplit[1].replace(",",""));
                 result.add(list);
             }
         } catch (IOException e) {
